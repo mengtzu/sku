@@ -7,7 +7,10 @@ const opn = require('opn');
 
 const compiler = webpack(webpackConfig);
 const devServer = new WebpackDevServer(compiler, {
-  contentBase: builds.map(({ paths }) => paths.public)
+  contentBase: builds.map(({ paths }) => paths.public),
+  historyApiFallback: {
+    index: '/'
+  }
 });
 
 const port = 8080;
